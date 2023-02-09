@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap');
+
+:root{
+    --clr-primary-cyan: hsl(179, 62%, 43%);
+    --clr-primary-br-yellow: hsl(71, 73%, 54%);
+
+    --clr-neutral-300: hsl(218, 22%, 67%);
+    --clr-neutral-200: hsl(204, 43%, 93%);
+
+    --fw-regular: 400;
+    --fw-bolder: 700;
+
+    --ff-main: 'Karla', sans-serif;
+}
+
+
+/* CSS RESET */
+
+*, *::before, *::after {
+box-sizing: border-box;
+}
+* {
+margin: 0;
+}
+html, body {
+min-height: 100vh;
+}
+body {
+line-height: 1.5;
+-webkit-font-smoothing: antialiased;
+}
+img, picture, video, canvas, svg {
+display: block;
+max-width: 100%;
+}
+input, button, textarea, select {
+font: inherit;
+}
+p, h1, h2, h3, h4, h5, h6 {
+overflow-wrap: break-word;
+}
+#root, #__next {
+isolation: isolate;
+}
+
+/* UTILITY CLASSES */
+
+.grid-item__main-heading{
+    font-size: 1.25rem;
+    color: var(--clr-primary-cyan);
+    font-weight: var(--fw-bolder);
+}
+
+.card{
+    --gap: 1.15rem;
+    padding: 1.75rem 1.5rem;
+    
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap);
+}
+
+
+/* MAIN CSS */
+
+body{
+    background-color: var(--clr-neutral-200);
+    font-family: var(--ff-main);
+}
+
+.main-grid{
+    max-width: 400px;
+    display: grid;
+    place-content: center;
+    border: none;
+    border-radius: 0.25rem;
+    margin-inline: auto;
+    margin-top: 4.25rem;
+    margin-bottom: 3rem;
+    overflow: hidden;
+    box-shadow: 0 6px 15px -5px rgb(0 0 0 / 25%);
+}
+
+.community-description{
+    background-color: white;
+}
+
+.community-description h3{
+    color: hsl(71, 63%, 50%);
+    font-size: 0.95rem;
+    font-weight: var(--fw-bolder);
+}
+
+.community-description p{
+    font-size: 0.85rem;
+    font-weight: var(--fw-regular);
+    line-height: 1.825;
+    color: var(--clr-neutral-300);
+}
+
+.subscription__container{
+    --gap: 0.25rem;
+    background-color: var(--clr-primary-cyan);
+    padding: 1.5rem;
+}
+
+.whyus__container{
+    --gap: 1.15rem;
+    background-color: hsla(179, 62%, 43%, 75%);
+    padding: 1.5rem;
+}
+
+.subscription__container h2, .whyus__container h2{
+    color: hsl(180, 100%, 97%);
+    font-size: 1.1rem;
+}
+
+.subscription-fee{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    padding-top: 0.75rem;
+}
+
+.price{
+    color: white;
+    font-size: 2rem;
+    font-weight: var(--fw-bolder);
+    line-height: 1.2;
+}
+
+.per-month{
+    font-size: 0.975rem;
+    color: hsl(178, 53%, 73%);
+}
+
+.plan-description{
+    font-size: 0.975rem;
+    color: hsla(180, 100%, 97%, 0.87);
+    padding-bottom: 1.25rem;
+}
+
+.signup-btn{
+    background-color: var(--clr-primary-br-yellow);
+    border: none;
+    border-radius: 0.35rem;
+    padding: 0.75rem;
+    font-size: 0.975rem;
+    font-weight: var(--fw-bolder);
+    color: rgba(255, 255, 255, 0.904);
+    box-shadow: 0 6px 15px -3px rgba(0 0 0 / 25%);
+    cursor: pointer;
+}
+
+.whyus__container p{
+    color: hsla(180, 100%, 96%, 0.7);
+    font-size: 0.85rem;
+    letter-spacing: 0.2px;
+    line-height: 1.6;
+    padding-right: 5rem;
+}
+
+@media (max-width: 450px){
+    .main-grid{
+        margin-inline: 8%;
+    }
+}
+
+@media (min-width: 725px){
+    .main-grid{
+        border-radius: 0.5rem;
+        max-width: 650px;
+        grid-template-areas: 
+            "community community"
+            "subsCont whyusCont";
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .card{
+        padding: 2.5rem;
+    }
+
+    .grid-item__main-heading{
+        font-size: 1.545rem;
+        font-weight: 900;
+        letter-spacing: 0;
+    }
+
+    .community-description{
+        --gap: 1rem;
+        grid-area: community;
+    }
+
+    .community-description h3{
+        font-size: 1.15rem;
+    }
+
+    .community-description p{
+        font-size: 1rem;
+        letter-spacing: 0;
+        line-height: 1.6;
+        margin-top: -0.65rem;
+    }
+
+    .subscription__container{
+        grid-area: subsCont;
+    }
+
+    .plan-description{
+        padding-bottom: 1.5rem;
+    }
+
+    .whyus__container{
+        grid-area: whyusCont;
+        padding-right: 1rem;
+    }
+}
